@@ -1,0 +1,914 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================================
+   BODY — Pengaturan dasar halaman
+================================ */
+body {
+    background-color: #0e0e0e;
+    color: #f0f0f0;
+    font-family: Outfit, sans-serif;
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ================================
+   TIPOGRAFI
+================================ */
+h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+p {
+  color: #999999;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Teks warna aksen — dipakai dengan <span class="teks-warna"> */
+.teks-warna {
+  color: #6c8fff;
+}
+
+nav .logo-warna {
+  color: #ffffff;
+}
+
+
+/* ================================
+   NAVBAR
+================================ */
+
+nav {
+    background-color: rgba(14, 14, 14, 0.92);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    border-bottom: 1px solid #1e1e1e;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #6c8fff;
+
+}
+
+nav ul {
+    display: flex;
+    gap : 2rem;
+}
+
+
+nav ul a {
+    font-size: 1rem;
+    color: #888888;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+}
+
+nav ul a:hover {
+    color: #ffffff;
+}
+
+
+nav ul a::after {
+    content: '';
+    position: absolute;
+    width: 0;           /* Lebar awal kosong */
+    height: 3px;        /* Ketebalan garis */
+    bottom: -3px;       /* Jarak dari teks */
+    left: 0;
+    background-color: #6c8fff; /* Warna garis */
+    transition: width 0.3s ease; /* Durasi animasi 0.5 detik */
+}
+
+nav ul a:hover::after {
+    width: 100%; /* Lebar penuh saat hover */
+  
+}
+
+.tombol-navbar {
+    padding: 0.5rem 1.25rem;
+    background-color: #6c8fff;
+    color: #0e0e0e;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: opacity 0.2s, transform 0.2s;
+    white-space: nowrap;
+}
+
+.tombol-navbar:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+
+/* ================================
+   SECTION LABEL
+   Teks kecil di atas setiap section
+================================ */
+
+.section-label{
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #444444;
+  margin-bottom: 1.25rem;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8rem 5% 5rem;
+}
+
+.hero-teks {
+  flex: 1;
+}
+
+.hero-label {
+    background-color: rgba(108, 143, 255, 0.1);
+    font-size: 1rem;
+    color: #6c8fff;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    border: 1px solid rgba(108, 143, 255, 0.25); 
+}
+
+.hero-teks h1 {
+    margin-bottom: 1.2rem;
+}
+
+.hero-teks h1 span{
+    font-style: italic;
+    font-family: 'Plus Jakarta Sans', sans-serif;;
+}
+
+
+.hero-desc{
+    font-size: 1.2rem;
+    max-width: 450px;
+    margin-bottom: 2rem;
+}
+
+
+/* ================================
+   TOMBOL HERO
+================================ */
+
+.hero-tombol {
+    display : flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.tombol-utama {
+    background-color: #6c8fff;
+    display: inline-block;
+    align-items: center;
+    gap: 0.5rem;
+    color: #0e0e0e;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.tombol-utama:hover {
+    opacity: 0.9;
+    transform: translateY(-4px);
+}
+
+
+.tombol-ghost {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #888888;
+    transition: color 0.2s;
+}
+
+.tombol-ghost:hover {
+    color: #ffffff;
+}
+
+
+/* ================================
+   GAMBAR HERO
+================================ */
+.hero-foto {
+  position: relative;
+  flex-shrink: 0;
+  width: 300px;
+}
+
+.hero-foto img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #1e1e1e;
+    transition: transform 0.2s;
+}
+
+.hero-foto img:hover {
+    transform: skewY(-2deg) skewX(2deg) scale(1.07) rotate(-2deg);
+}
+
+
+/* ================================
+   TENTANG
+================================ */
+
+#tentang {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 5%;
+  border-top: 1px solid #1e1e1e;
+}
+
+.tentang-layout {
+  text-align: center;
+  gap: 4rem;
+  margin-top: 2rem;
+  transition: all 0.5s ease-in;
+}
+
+.tentang-teks p {
+  margin-bottom: 1rem;
+  transition: all 0.3s fade-in;
+}
+
+.tentang-teks h2 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.tentang-teks .tombol-outline {
+    border: 1px solid #6c8fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #f0f0f0;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    transition: opacity 0.2s, transform 0.2s;
+    font-size: 1rem;
+}
+
+.tombol-outline:hover {
+    background-color: #6c8fff;
+    color: #0e0e0e;
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+
+/* ================================
+   KEAHLIAN 
+================================ */
+#keahlian {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 5%;
+  border-top: 1px solid #1e1e1e;
+}
+ 
+#keahlian h2 {
+  margin-bottom: 2.5rem;
+}
+ 
+.keahlian-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+ 
+.keahlian-kartu {
+  background-color: #111111;
+  border: 1px solid #1e1e1e;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+ 
+.keahlian-kartu:hover {
+  border-color: #6c8fff;
+  transform: translateY(-4px);
+}
+ 
+.keahlian-ikon {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+ 
+.keahlian-kartu h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+ 
+.keahlian-kartu p {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+ 
+/* ================================
+   Eksperiens
+================================ */
+
+#experience {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 5%;
+  border-top: 1px solid #1e1e1e;
+}
+ 
+#experience h2 {
+  margin-bottom: 3rem;
+}
+ 
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.timeline-item {
+  display: grid;
+  grid-template-columns: 80px 32px 1fr;
+  gap: 0 1.5rem;
+  padding-bottom: 2.5rem;
+}
+ 
+.timeline-tahun {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #555555;
+  padding-top: 0.2rem;
+  text-align: right;
+}
+ 
+.timeline-garis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+ 
+/* Titik bulat di garis */
+.timeline-titik {
+  width: 10px;
+  height: 10px;
+  background-color: #6c8fff;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+  box-shadow: 0 0 0 3px rgba(108, 143, 255, 0.15);
+}
+ 
+/* Garis vertikal ke bawah setelah titik */
+.timeline-garis::after {
+  content: '';
+  flex: 1;
+  width: 1px;
+  background-color: #1e1e1e;
+  margin-top: 6px;
+}
+ 
+/* Item terakhir: sembunyikan garis bawah */
+.timeline-item:last-child .timeline-garis::after {
+  display: none;
+}
+ 
+.timeline-konten {
+  padding-bottom: 0.5rem;
+}
+ 
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+ 
+.timeline-header h3 {
+  margin: 0;
+}
+ 
+.timeline-tag {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6c8fff;
+  background-color: rgba(108, 143, 255, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid rgba(108, 143, 255, 0.2);
+}
+ 
+.timeline-konten p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  max-width: 620px;
+}
+ 
+.timeline-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #6c8fff;
+  transition: opacity 0.2s;
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+ 
+.timeline-link:hover {
+  opacity: 0.7;
+}
+ 
+/* Tag kecil di timeline */
+/* .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+ 
+.tag-list span {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #888888;
+  background-color: #1a1a1a;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #2a2a2a;
+} */
+ 
+
+/* ================================
+  TOOLS
+================================ */
+
+#tools {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 5%;
+  border-top: 1px solid #1e1e1e;
+}
+
+#tools h2 {
+  margin-bottom: 2rem;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.tool-kartu {
+  background-color: #141414;
+  border: 1px solid #1e1e1e;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+  height: 100%;
+  
+}
+
+.tool-kartu:hover {
+  border-color: #6c8fff;
+  transform: translateY(-4px);
+}
+
+.tool-kartu img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin: 0 auto 0.85rem;
+}
+
+.tool-nama {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 0.2rem;
+}
+
+.tool-desc {
+  font-size: 0.9rem;
+  color: #666666;
+  line-height: 1.5;
+}
+
+
+
+
+
+/* ================================
+   KONTAK
+================================ */
+
+#kontak {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 5%;
+  border-top: 1px solid #1e1e1e;
+}
+
+.kontak-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  max-width: 700px;
+}
+
+.kontak-box h2 {
+  margin-top: 0.5rem;
+}
+
+.sosial {
+  display: flex;
+  gap: 1.75rem;
+  margin-top: 0.25rem;
+}
+
+.sosial a {
+  font-size: 1rem;
+  color: #555555;
+  transition: color 0.2s;
+}
+
+.sosial a:hover {
+  color: #ffffff;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 5%;
+  border-top: 1px solid #1e1e1e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer span {
+  font-size: 20px;
+  color: #444444;
+}
+
+footer a {
+  font-size: 20px;
+  color: #444444;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: #6c8fff;
+}
+
+
+/* ================================================================
+   responsive.css — CSS Responsive untuk Portfolio
+   
+   📚 CARA PAKAINYA:
+   Tambahkan baris ini di <head> HTML kamu,
+   SETELAH link ke style.css:
+   
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="responsive.css">  ← tambahkan ini
+   
+   ================================================================
+   
+   📚 APA ITU MEDIA QUERY?
+   
+   Media query = "aturan CSS yang aktif hanya pada kondisi tertentu"
+   
+   Struktur:
+   @media (kondisi) {
+     selector { property: value; }
+   }
+   
+   Kondisi paling umum:
+   max-width: Xpx  → aktif jika lebar layar ≤ X piksel
+   min-width: Xpx  → aktif jika lebar layar ≥ X piksel
+   
+   Kita pakai max-width (Desktop-First):
+   Tulis CSS untuk desktop dulu di style.css,
+   lalu override untuk layar lebih kecil di sini.
+   
+   ================================================================
+   
+   BREAKPOINT YANG DIPAKAI:
+   
+   ≤ 1024px  Laptop kecil / Tablet landscape
+   ≤  768px  Tablet portrait
+   ≤  480px  HP Android standar (Samsung Galaxy A, Xiaomi Redmi)
+   ≤  360px  HP Android layar kecil (Galaxy A03, Redmi 9A)
+   
+================================================================ */
+
+
+/* ================================
+   1. LAPTOP KECIL & TABLET LANDSCAPE
+   Lebar layar maksimal: 1024px
+================================ */
+@media (max-width: 1024px) {
+
+  /* Heading lebih kecil */
+  h1 { font-size: 4rem; }
+  h2 { font-size: 2.5rem; }
+  .tentang-teks h2 { font-size: 3rem; }
+
+  /* Hero: gap lebih sempit, foto sedikit dikecilkan */
+  #hero { gap: 2.5rem; }
+  .hero-foto { width: 260px; }
+  .hero-foto img { height: 380px; }
+
+  /*
+    Keahlian: 3 kolom → 2 kolom
+    repeat(3, 1fr) → repeat(2, 1fr)
+  */
+  .keahlian-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ================================
+   2. TABLET PORTRAIT
+   Lebar layar maksimal: 768px
+================================ */
+@media (max-width: 768px) {
+
+  /* Font sedikit dikecilkan */
+  body { font-size: 17px; }
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.2rem; }
+  .tentang-teks h2 { font-size: 2.5rem; }
+
+  /*
+    NAVBAR:
+    Sembunyikan menu link tengah.
+    Yang tersisa: logo (kiri) + tombol Let's Talk (kanan).
+    
+    display: none → elemen hilang sepenuhnya dari tampilan
+  */
+  nav ul { display: none; }
+  nav { padding: 1.2rem 5%; }
+
+  /*
+    HERO:
+    flex-direction: column-reverse
+    → ubah dari baris (foto kanan) jadi kolom terbalik (foto di atas, teks di bawah)
+    
+    Kenapa column-reverse dan bukan column biasa?
+    Karena di HTML, .hero-teks ada sebelum .hero-foto.
+    reverse = balik urutan → foto jadi pertama (atas)
+  */
+  #hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+    gap: 2rem;
+  }
+
+  .hero-foto { width: 220px; }
+  .hero-foto img { height: 280px; }
+
+  /* Paragraf tengah di saat layout teks jadi centered */
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Tombol hero: tengahkan, biarkan wrap jika sempit */
+  .hero-tombol {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* Tools: 2 kolom → 1 kolom */
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Timeline: kurangi lebar kolom tahun */
+  .timeline-item {
+    grid-template-columns: 55px 28px 1fr;
+    gap: 0 1rem;
+  }
+}
+
+
+/* ================================
+   3. HP ANDROID STANDAR
+   Lebar layar maksimal: 480px
+   
+   Contoh perangkat:
+   - Samsung Galaxy A14 (360×800)
+   - Xiaomi Redmi Note 12 (393×873)
+   - Oppo A57 (360×800)
+================================ */
+@media (max-width: 480px) {
+
+  body { font-size: 16px; }
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.9rem; }
+  .tentang-teks h2 { font-size: 2rem; }
+
+  /*
+    Semua section: kurangi padding kiri-kanan
+    Agar konten tidak terlalu mepet ke tepi layar HP
+  */
+  #hero, #tentang, #keahlian, #experience,
+  #tools, #kontak, footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Navbar lebih kompak */
+  nav { padding: 1rem 1.25rem; }
+  .logo { font-size: 1.4rem; }
+  .tombol-navbar { font-size: 0.85rem; padding: 0.45rem 1rem; }
+
+  /* Hero foto lebih kecil */
+  #hero { padding-top: 4.5rem; padding-bottom: 3rem; }
+  .hero-foto { width: 180px; }
+  .hero-foto img { height: 230px; }
+
+  /*
+    Tombol hero: susun vertikal (tumpuk ke bawah)
+    flex-direction: column → dari baris jadi kolom
+    width: 100% pada tombol → tombol melebar penuh
+  */
+  .hero-tombol {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .tombol-utama {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Keahlian: 2 kolom → 1 kolom */
+  .keahlian-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /*
+    Timeline: hapus kolom tahun di HP
+    Dari 3 kolom [tahun | garis | konten]
+    Jadi 2 kolom [garis | konten]
+    
+    display: none pada .timeline-tahun → kolom tahun hilang
+  */
+  .timeline-item {
+    grid-template-columns: 24px 1fr;
+    gap: 0 0.75rem;
+  }
+  .timeline-tahun { display: none; }
+
+  /* Footer: susun vertikal, teks tengah */
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  footer span, footer a { font-size: 0.85rem; }
+}
+
+
+/* ================================
+   4. HP ANDROID LAYAR KECIL
+   Lebar layar maksimal: 360px
+   
+   Contoh perangkat:
+   - Samsung Galaxy A03 (360×800)
+   - Xiaomi Redmi 9A (360×800)
+   - Samsung Galaxy M02 (360×800)
+================================ */
+@media (max-width: 360px) {
+
+  body { font-size: 15px; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.7rem; }
+  .tentang-teks h2 { font-size: 1.8rem; }
+
+  /* Padding lebih rapat lagi */
+  #hero, #tentang, #keahlian, #experience,
+  #tools, #kontak, footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  nav { padding: 0.9rem 1rem; }
+  .logo { font-size: 1.2rem; }
+  .tombol-navbar { font-size: 0.8rem; padding: 0.4rem 0.85rem; }
+
+  /* Foto hero lebih kecil lagi */
+  .hero-foto { width: 155px; }
+  .hero-foto img { height: 200px; }
+
+  /* Badge di foto: ukuran lebih kecil */
+  .badge { font-size: 0.65rem; padding: 0.35rem 0.75rem; }
+
+  /* Padding kartu lebih rapat */
+  .keahlian-kartu, .tool-kartu { padding: 1.25rem 1rem; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-label    { animation: fadeUp 0.5s ease forwards; }
+h1             { animation: fadeUp 0.5s ease 0.1s forwards; opacity: 0; }
+.hero-desc     { animation: fadeUp 0.5s ease 0.2s forwards; opacity: 0; }
+.hero-tombol   { animation: fadeUp 0.5s ease 0.3s forwards; opacity: 0; }
+.hero-foto     { animation: fadeUp 0.6s ease 0.15s forwards; opacity: 0; }
+
+
+
+
+
+
+
+
